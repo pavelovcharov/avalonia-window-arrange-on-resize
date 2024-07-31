@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Media;
@@ -57,5 +59,20 @@ public partial class ItemViewModel : ObservableObject
     {
         Back = brush;
         Text = text;
+    }
+}
+
+public class WrapPanelEx : WrapPanel
+{
+    protected override Size MeasureOverride(Size constraint)
+    {
+        Debug.WriteLine($"measure: {constraint}");
+        return base.MeasureOverride(constraint);
+    }
+
+    protected override Size ArrangeOverride(Size finalSize)
+    {
+        Debug.WriteLine($"arrange: {finalSize}");
+        return base.ArrangeOverride(finalSize);
     }
 }

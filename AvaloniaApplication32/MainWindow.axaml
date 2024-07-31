@@ -6,8 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaloniaApplication32.MainWindow"
         Title="AvaloniaApplication32" Width="1200" Opened="TopLevel_OnOpened"
-        x:DataType="avaloniaApplication32:ViewModel"
-        >
+        x:DataType="avaloniaApplication32:ViewModel">
 	<Design.DataContext>
 		<avaloniaApplication32:ViewModel></avaloniaApplication32:ViewModel>
 	</Design.DataContext>
@@ -17,13 +16,13 @@
 			<ItemsControl ItemsSource="{Binding Items}">
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
-						<WrapPanel ItemWidth="50" ItemHeight="50" Orientation="Horizontal"></WrapPanel>
+						<avaloniaApplication32:WrapPanelEx ItemWidth="50" ItemHeight="50" Orientation="Horizontal"></avaloniaApplication32:WrapPanelEx>
 					</ItemsPanelTemplate>
 				</ItemsControl.ItemsPanel>
 				<ItemsControl.ItemTemplate>
 					<DataTemplate x:DataType="avaloniaApplication32:ItemViewModel">
 						<Border Background="{Binding Back}" BorderBrush="Black" BorderThickness="2" Margin="4">
-							<ContentPresenter Content="{Binding Text}"></ContentPresenter>
+							<ContentControl Content="{Binding Text}"></ContentControl>
 						</Border>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
